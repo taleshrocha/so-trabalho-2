@@ -41,7 +41,3 @@ void Trem::run(){
         msleep(velocidade);
     }
 }
-
-
-
-

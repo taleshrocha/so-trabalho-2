@@ -13,13 +13,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
-     * Ou seja, sempre que o sinal UPDATEGUI foi chamado, será executada a função UPDATEINTERFACE.
+     * Ou seja, sempre que o sinal UPDATEGUI foi chamado,
+     * será executada a função UPDATEINTERFACE.
      * Os 3 parâmetros INT do sinal serão utilizados na função.
-     * Trem1 e Trem2 são os objetos que podem chamar o sinal. Se um outro objeto chamar o
+     * Trem1 e Trem2 são os objetos que podem chamar o sinal.
+     * Se um outro objeto chamar o
      * sinal UPDATEGUI, não haverá execução da função UPDATEINTERFACE
      */
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+
+    trem1->start();
+    trem2->start();
 
 
 
@@ -47,17 +52,18 @@ MainWindow::~MainWindow()
 /*
  * Ao clicar, trens começam execução
  */
-void MainWindow::on_pushButton_clicked()
-{
-    trem1->start();
-    trem2->start();
-}
+//void MainWindow::on_pushButton_clicked()
+//{
+//    trem1->start();
+//    trem2->start();
+//}
 
 /*
  * Ao clicar, trens param execução
  */
-void MainWindow::on_pushButton_2_clicked()
-{
-    trem1->terminate();
-    trem2->terminate();
-}
+
+//void MainWindow::on_pushButton_2_clicked()
+//{
+//    trem1->terminate();
+//    trem2->terminate();
+//}
