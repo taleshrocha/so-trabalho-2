@@ -23,9 +23,7 @@ public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
     void setSpeed(int);
-    void passCritical0();
-    void passCritical1();
-    void passCritical2();
+    void passRegion(int, int, int, int, int);
 
 signals:
     void updateGUI(int,int,int);

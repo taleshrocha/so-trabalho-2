@@ -18,237 +18,70 @@ void Trem::setSpeed(int speed){
     this->speed = speed;
 }
 
-void Trem::passCritical0() {
-    mutex[0].lock();
+void Trem::passRegion(int right, int down, int left, int up, int mutexNum) {
+    if (mutexNum != -1)
+        mutex[mutexNum].lock();
+
     while(true) {
-        switch (ID) {
-        case 1:
-            if (currentPos.x < (startPos.x + 270) && currentPos.y == startPos.y) {
-                    currentPos.x += 10;
-            }
-            else if (currentPos.x == (startPos.x + 270)
-                            && currentPos.y < (startPos.y + 120)) {
-                currentPos.y += 10;
-            }
-            else if (currentPos.x > (startPos.x + 240)) {
-                currentPos.x -= 10;
-            }
-            else {
-                mutex[0].unlock();
-                return;
-            }
-            break;
 
-        case 2:
-            if (currentPos.x > startPos.x && currentPos.y == (startPos.y + 120)) {
-                currentPos.x -= 10;
-            }
-            else if (currentPos.x == startPos.x && currentPos.y > startPos.y ) {
-                currentPos.y -= 10;
-            }
-            else if (currentPos.x < (startPos.x + 30)) {
-                currentPos.x += 10;
-            }
-            else {
-                mutex[0].unlock();
-                return;
-            }
-            break;
-
-        default:
+        if (right != 0) {
+            right = right - 10;
+            currentPos.x += 10;
+        }
+        else if (down != 0) {
+            down = down - 10;
+            currentPos.y += 10;
+        }
+        else if (left != 0) {
+            left = left - 10;
+            currentPos.x -= 10;
+        }
+        else if (up != 0) {
+            up = up - 10;
+            currentPos.y -= 10;
+        }
+        else {
             break;
         }
 
         emit updateGUI(ID, currentPos.x, currentPos.y);
-        while(speed == 0)
-            continue;
+        while (speed == 0);
         msleep(200 - speed);
     }
-}
 
-
-void Trem::passCritical1() {
-    mutex[1].lock();
-    while(true) {
-        switch (ID) {
-        case 1:
-            if (currentPos.x > startPos.x) {
-                    currentPos.x -= 10;
-            }
-            else if (currentPos.y > startPos.y + 90) {
-                    currentPos.y -= 10;
-            }
-            else {
-                mutex[1].unlock();
-                return;
-            }
-            break;
-
-        case 3:
-            if (currentPos.x < (startPos.x + 270)) {
-                currentPos.x += 10;
-            }
-            else if (currentPos.y < startPos.y + 30) {
-                currentPos.y += 10;
-            }
-            else {
-                mutex[1].unlock();
-                return;
-            }
-            break;
-
-        default:
-            break;
-        }
-
-        emit updateGUI(ID, currentPos.x, currentPos.y);
-        while(speed == 0)
-            continue;
-        msleep(200 - speed);
-    }
-}
-
-void Trem::passCritical2() {
-    mutex[2].lock();
-    while(true) {
-        switch (ID) {
-        case 1:
-            if (currentPos.x > startPos.x + 160) {
-                    currentPos.x -= 10;
-            }
-            else if (currentPos.y > startPos.y + 90) {
-                    currentPos.y -= 10;
-            }
-            else {
-                mutex[2].unlock();
-                return;
-            }
-            break;
-
-        case 4:
-            if (currentPos.x < (startPos.x + 270)) {
-                currentPos.x += 10;
-            }
-            else if (currentPos.y < startPos.y + 30) {
-                currentPos.y += 10;
-            }
-            else {
-                mutex[2].unlock();
-                return;
-            }
-            break;
-
-        default:
-            break;
-        }
-
-        emit updateGUI(ID, currentPos.x, currentPos.y);
-        while(speed == 0)
-            continue;
-        msleep(200 - speed);
-    }
+    if (mutexNum != -1)
+        mutex[mutexNum].unlock();
+    return;
 }
 
 
 // Função a ser executada após executar trem->START.
 void Trem::run() {
     while(true) {
-        switch (ID) {
-        case 1:
-            if (currentPos.x < (startPos.x + 240)
-                    && currentPos.y == startPos.y) {
-                currentPos.x += 10;
-            }
-            else if (currentPos.y < startPos.y + 120) {
-                passCritical0();
-            }
-            else if (currentPos.x > startPos.x) {
-                if (currentPos.x == startPos.x + 160) {
-                    passCritical1();
-                }
-
-                else if (currentPos.x == startPos.x + 190) {
-                    passCritical2();
-                }
-                else {
-                    currentPos.x -= 10;
-                }
-            }
-            else {
-                currentPos.y -= 10;
-            }
-            break;
-
-        case 2:
-            if (currentPos.x < startPos.x + 270
-                    && currentPos.y == startPos.y) {
-                currentPos.x += 10;
-            }
-            else if (currentPos.y < startPos.y + 120) {
-                currentPos.y += 10;
-            }
-            else if (currentPos.x > startPos.x + 30) {
-                currentPos.x -= 10;
-            }
-            else {
-                passCritical0();
-            }
-            break;
-
-        case 3:
-            if (currentPos.x < (startPos.x + 270)
-                    && currentPos.y == startPos.y) {
-                if (currentPos.x == (startPos.x + 100)) {
-                    passCritical1();
-                }
-                else {
-                    currentPos.x += 10;
-                }
-            }
-            else if (currentPos.x == (startPos.x + 270)
-                     && currentPos.y < (startPos.y + 120)) {
-                currentPos.y += 10;
-            }
-            else if (currentPos.x > startPos.x
-                     && currentPos.y == (startPos.y + 120)) {
-                currentPos.x -= 10;
-            }
-            else {
-                currentPos.y -= 10;
-            }
-            break;
-
-        case 4:
-            if (currentPos.x < (startPos.x + 270)
-                    && currentPos.y == startPos.y) {
-                if (currentPos.x == (startPos.x + 100)) {
-                    passCritical2();
-                }
-                else {
-                    currentPos.x += 10;
-                }
-            }
-            else if (currentPos.x == (startPos.x + 270)
-                     && currentPos.y < (startPos.y + 120)) {
-                currentPos.y += 10;
-            }
-            else if (currentPos.x > startPos.x
-                     && currentPos.y == (startPos.y + 120)) {
-                currentPos.x -= 10;
-            }
-            else {
-                currentPos.y -= 10;
-            }
-            break;
-
-
-        default:
-            break;
+        if (currentPos.x == startPos.x
+                && currentPos. y == startPos.y) {
+            passRegion(230, 0, 0, 0, -1);
         }
-
-        emit updateGUI(ID, currentPos.x, currentPos.y);
-        while(speed == 0)
-            continue;
-        msleep(200 - speed);
+        else if (currentPos.y == startPos.y) {
+            if (ID == 1) {
+                passRegion(20, 120, 20, 0, 0);
+            }
+            else {
+                passRegion(20, 120, 20, 0, -1);
+            }
+        }
+        else if (currentPos.x == startPos.x + 230) {
+            passRegion(0, 0, 230, 0, -1);
+        }
+        else if (currentPos.x == startPos.x) {
+            if (ID == 2) {
+                passRegion(0, 0, 20, 120, 0);
+                passRegion(20, 0, 0, 0, 0);
+            }
+            else {
+                passRegion(0, 0, 20, 120, -1);
+                passRegion(20, 0, 0, 0, -1);
+            }
+        }
     }
 }
