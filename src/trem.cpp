@@ -1,43 +1,112 @@
 #include "trem.h"
 #include <QtCore>
+#include<iostream>
 
-//Construtor
+QMutex mutex;
+
+//Construtor.
 Trem::Trem(int ID, int x, int y){
     this->ID = ID;
-    this->x = x;
-    this->y = y;
-    velocidade = 100;
+    startPos.x = x;
+    startPos.y = y;
+    currentPos.x = x;
+    currentPos.y = y;
+    speed = 100;
 }
 
-//Função a ser executada após executar trem->START
-void Trem::run(){
-    while(true){
-        switch(ID){
-        case 1:     //Trem 1
-            if (y == 30 && x <330)
-                x+=10;
-            else if (x == 330 && y < 150)
-                y+=10;
-            else if (x > 60 && y == 150)
-                x-=10;
-            else
-                y-=10;
-            emit updateGUI(ID, x,y);    //Emite um sinal
+void Trem::setSpeed(int speed){
+    this->speed = speed;
+}
+
+void Trem::passCritical0() {
+    mutex.lock();
+    while(true) {
+        switch (ID) {
+        case 1:
+            if (currentPos.x < (startPos.x + 270) && currentPos.y == startPos.y) {
+                    currentPos.x += 10;
+            }
+            else if (currentPos.x == (startPos.x + 270)
+                            && currentPos.y < (startPos.y + 120)) {
+                currentPos.y += 10;
+            }
+            else if (currentPos.x > (startPos.x + 250)) {
+                currentPos.x -= 10;
+            }
+            else {
+                mutex.unlock();
+                return;
+            }
             break;
-        case 2: //Trem 2
-            if (y == 30 && x <600)
-                x+=10;
-            else if (x == 600 && y < 150)
-                y+=10;
-            else if (x > 330 && y == 150)
-                x-=10;
-            else
-                y-=10;
-            emit updateGUI(ID, x,y);    //Emite um sinal
+
+        case 2:
+            if (currentPos.x > startPos.x && currentPos.y == (startPos.y + 120)) {
+                currentPos.x -= 10;
+            }
+            else if (currentPos.x == startPos.x && currentPos.y > startPos.y ) {
+                currentPos.y -= 10;
+            }
+            else if (currentPos.x < (startPos.x + 20)) {
+                currentPos.x += 10;
+            }
+            else {
+                mutex.unlock();
+                return;
+            }
             break;
+
         default:
             break;
         }
-        msleep(velocidade);
+
+        emit updateGUI(ID, currentPos.x, currentPos.y);
+        while(speed == 0)
+            continue;
+        msleep(200 - speed);
+    }
+}
+
+// Função a ser executada após executar trem->START.
+void Trem::run() {
+    while(true) {
+        switch (ID) {
+        case 1:
+            if (currentPos.x < (startPos.x + 250) && currentPos.y == startPos.y) {
+                currentPos.x += 10;
+            }
+            else if (currentPos.x == (startPos.x + 250) && currentPos.y < (startPos.y + 120)) {
+                passCritical0();
+            }
+            else if (currentPos.x > startPos.x && currentPos.y == (startPos.y + 120)) {
+                currentPos.x -= 10;
+            }
+            else {
+                currentPos.y -= 10;
+            }
+            break;
+
+        case 2:
+            if (currentPos.x < (startPos.x + 270) && currentPos.y == startPos.y) {
+                currentPos.x += 10;
+            }
+            else if (currentPos.x == (startPos.x + 270) && currentPos.y < (startPos.y + 120)) {
+                currentPos.y += 10;
+            }
+            else if (currentPos.x > (startPos.x + 20) && currentPos.y == (startPos.y + 120)) {
+                currentPos.x -= 10;
+            }
+            else {
+                passCritical0();
+            }
+            break;
+
+        default:
+            break;
+        }
+
+        emit updateGUI(ID, currentPos.x, currentPos.y);
+        while(speed == 0)
+            continue;
+        msleep(200 - speed);
     }
 }

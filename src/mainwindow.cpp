@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <pthread.h>
+#include <semaphore.h>
+#define SHARED 0
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,8 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //Cria o trem com seu (ID, posição X, posição Y)
-    trem1 = new Trem(1,60,30);
-    trem2 = new Trem(2,330,30);
+    trem1 = new Trem(1,200,30);
+    trem2 = new Trem(2,470,30);
+    trem3 = new Trem(3,70,150);
+    trem4 = new Trem(4,340,150);
+    trem5 = new Trem(5,610,150);
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
@@ -22,12 +28,15 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    //connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    //connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    //connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
 
     trem1->start();
     trem2->start();
-
-
-
+    //trem3->start();
+    //trem4->start();
+    //trem5->start();
 }
 
 //Função que será executada quando o sinal UPDATEGUI for emitido
@@ -39,6 +48,15 @@ void MainWindow::updateInterface(int id, int x, int y){
     case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem2->setGeometry(x,y,21,17);
         break;
+    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem3
+        ui->label_trem3->setGeometry(x,y,21,17);
+        break;
+    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem4
+        ui->label_trem4->setGeometry(x,y,21,17);
+        break;
+    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem5
+        ui->label_trem5->setGeometry(x,y,21,17);
+        break;
     default:
         break;
     }
@@ -49,21 +67,37 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*
- * Ao clicar, trens começam execução
- */
-//void MainWindow::on_pushButton_clicked()
-//{
-//    trem1->start();
-//    trem2->start();
-//}
+void MainWindow::on_horizontalSliderTrem1_valueChanged(int value)
+{
+    trem1->setSpeed(value);
+    ui->lcdNumberTrem1->display(value);
+}
+void MainWindow::on_horizontalSliderTrem2_valueChanged(int value)
+{
+    trem2->setSpeed(value);
+    ui->lcdNumberTrem2->display(value);
+}
 
-/*
- * Ao clicar, trens param execução
- */
 
-//void MainWindow::on_pushButton_2_clicked()
-//{
-//    trem1->terminate();
-//    trem2->terminate();
-//}
+void MainWindow::on_horizontalSliderTrem3_valueChanged(int value)
+{
+    trem3->setSpeed(value);
+    ui->lcdNumberTrem3->display(value);
+
+}
+
+
+void MainWindow::on_horizontalSliderTrem4_valueChanged(int value)
+{
+    trem4->setSpeed(value);
+    ui->lcdNumberTrem4->display(value);
+
+}
+
+
+void MainWindow::on_horizontalSliderTrem5_valueChanged(int value)
+{
+    trem5->setSpeed(value);
+    ui->lcdNumberTrem5->display(value);
+
+}
