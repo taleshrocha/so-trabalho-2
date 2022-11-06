@@ -24,6 +24,8 @@ public:
     void run();         //função a ser executada pela thread
     void setSpeed(int);
     void passCritical0();
+    void passCritical1();
+    void passCritical2();
 
 signals:
     void updateGUI(int,int,int);
