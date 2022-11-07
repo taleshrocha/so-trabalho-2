@@ -60,6 +60,12 @@ void Trem::run() {
             if (ID == 2) {
                 mutex[0].unlock(); // From Region 9.
             }
+            if (ID == 4) {
+                mutex[5].unlock(); // From Region 9.
+            }
+            if (ID == 5) {
+                mutex[6].unlock(); // From Region 9.
+            }
             passRegion(90, 0, 0, 0);
         }
 
@@ -93,6 +99,12 @@ void Trem::run() {
             if (ID == 1) {
                 mutex[0].lock(); // Into Region 6.
             }
+            if (ID == 3) {
+                mutex[5].lock(); // Into Region 6.
+            }
+            if (ID == 4) {
+                mutex[6].lock(); // Into Region 6.
+            }
             passRegion(20, 20, 0, 0);
         }
 
@@ -123,8 +135,14 @@ void Trem::run() {
         // Region 6.
         else if (currentPos.x == startPos.x + 230
              && currentPos.y == startPos.y + 120) {
-            if (ID == 1) { // From Region 3.
-                mutex[0].unlock();
+            if (ID == 1) {
+                mutex[0].unlock(); // From Region 3.
+            }
+            if (ID == 3) {
+                mutex[5].unlock(); // From Region 3.
+            }
+            if (ID == 4) {
+                mutex[6].unlock(); // From Region 3.
             }
             passRegion(0, 0, 90, 0);
         }
@@ -158,6 +176,12 @@ void Trem::run() {
              && currentPos.y == startPos.y + 120) {
             if (ID == 2) {
                 mutex[0].lock(); // Into Region 0.
+            }
+            if (ID == 4) {
+                mutex[5].lock(); // Into Region 0.
+            }
+            if (ID == 5) {
+                mutex[6].lock(); // Into Region 0.
             }
             passRegion(0, 0, 20, 20);
         }
