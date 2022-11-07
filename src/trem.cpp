@@ -60,7 +60,13 @@ void Trem::run() {
     while(true) {
         if (currentPos.x == startPos.x
                 && currentPos. y == startPos.y) {
-            passRegion(230, 0, 0, 0, -1);
+            if (ID == 3) {
+                passRegion(90, 0, 0, 0, -1);
+                passRegion(160, 20, 0, 0, 1);
+            }
+            else {
+                passRegion(230, 0, 0, 0, -1);
+            }
         }
         else if (currentPos.y == startPos.y) {
             if (ID == 1) {
@@ -71,7 +77,13 @@ void Trem::run() {
             }
         }
         else if (currentPos.x == startPos.x + 230) {
-            passRegion(0, 0, 230, 0, -1);
+            if (ID == 1) {
+                passRegion(0, 0, 90, 0, -1);
+                passRegion(0, 0, 160, 20, 1);
+            }
+            else {
+                passRegion(0, 0, 230, 0, -1);
+            }
         }
         else if (currentPos.x == startPos.x) {
             if (ID == 2) {
