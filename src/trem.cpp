@@ -2,10 +2,16 @@
 #include <QtCore>
 #include<iostream>
 
-QMutex mutex[7];
+QMutex mutex[9];
+
+QSemaphore semaphore[3] = {
+    QSemaphore(2),
+    QSemaphore(2),
+    QSemaphore(2)
+};
 
 //Construtor.
-Trem::Trem(int ID, int x, int y){
+Trem::Trem(int ID, int x, int y) {
     this->ID = ID;
     startPos.x = x;
     startPos.y = y;
@@ -14,7 +20,7 @@ Trem::Trem(int ID, int x, int y){
     speed = 100;
 }
 
-void Trem::setSpeed(int speed){
+void Trem::setSpeed(int speed) {
     this->speed = speed;
 }
 
@@ -42,7 +48,7 @@ void Trem::passRegion(int right, int down, int left, int up) {
         }
 
         emit updateGUI(ID, currentPos.x, currentPos.y);
-        while (speed == 0);
+        while (speed == 0); // Stops the train.
         msleep(200 - speed);
     }
 
@@ -60,8 +66,13 @@ void Trem::run() {
             if (ID == 2) {
                 mutex[0].unlock(); // From Region 9.
             }
+            if (ID == 3) {
+                mutex[5].unlock(); // From Region 9.
+                semaphore[0].acquire(1); // Into Region 4.
+            }
             if (ID == 4) {
                 mutex[5].unlock(); // From Region 9.
+                semaphore[2].acquire(1); // Into Region 4.
             }
             if (ID == 5) {
                 mutex[6].unlock(); // From Region 9.
@@ -86,9 +97,15 @@ void Trem::run() {
              && currentPos.y == startPos.y) {
             if (ID == 4) {
                 mutex[2].unlock(); // From Region 11.
+                if (semaphore[0].available() != 2) {
+                    semaphore[0].release(1); // From Region 8.
+                }
             }
             if (ID == 5) {
                 mutex[4].unlock(); // From Region 11.
+                if (semaphore[2].available() != 2) {
+                    semaphore[2].release(1); // From Region 11.
+                }
             }
             passRegion(100, 0, 0, 0);
         }
@@ -111,11 +128,26 @@ void Trem::run() {
         // Region 4.
         else if (currentPos.x == startPos.x + 250
              && currentPos.y == startPos.y + 20) {
+            if (ID == 1) {
+                semaphore[0].acquire(1); // Into Region 8.
+            }
+            if (ID == 2) {
+                semaphore[2].acquire(1); // Into Region 8.
+            }
             if (ID == 3) {
                 mutex[1].unlock(); // From Region 1.
+                if (semaphore[0].available() != 2) {
+                    semaphore[0].release(1); // From Region 0.
+                }
             }
             if (ID == 4) {
                 mutex[3].unlock(); // From Region 1.
+                if (semaphore[1].available() != 2) {
+                    semaphore[1].release(1); // From Region 11.
+                }
+                if (semaphore[2].available() != 2) {
+                    semaphore[2].release(1); // From Region 2.
+                }
             }
             passRegion(0, 80, 0, 0);
         }
@@ -125,9 +157,11 @@ void Trem::run() {
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
                 mutex[2].lock(); // Into Region 8.
+                semaphore[1].acquire(1); // Into Region 10.
             }
             if (ID == 2) {
                 mutex[4].lock(); // Into Region 8.
+                semaphore[1].acquire(1); // Into Region 10.
             }
             passRegion(0, 20, 20, 0);
         }
@@ -164,9 +198,21 @@ void Trem::run() {
              && currentPos.y == startPos.y + 120) {
             if (ID == 1) {
                 mutex[2].unlock(); // From Region 5.
+                if (semaphore[0].available() != 2) {
+                    semaphore[0].release(1); // From Region 4.
+                }
             }
             if (ID == 2) {
                 mutex[4].unlock(); // From Region 5.
+                if (semaphore[2].available() != 2) {
+                    semaphore[2].release(1); // From Region 5.
+                }
+            }
+            if (ID == 4) {
+                semaphore[0].acquire(1); // Into Region 2.
+            }
+            if (ID == 5) {
+                semaphore[2].acquire(1); // Into Region 2.
             }
             passRegion(0, 0, 100, 0);
         }
@@ -191,9 +237,15 @@ void Trem::run() {
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
                 mutex[1].unlock(); // From Region 7.
+                if (semaphore[1].available() != 2) {
+                    semaphore[1].release(1); // From Region 5.
+                }
             }
             if (ID == 2) {
                 mutex[3].unlock(); // From Region 7.
+                if (semaphore[1].available() != 2) {
+                    semaphore[1].release(1); // From Region 5.
+                }
             }
             passRegion(0, 0, 0, 80);
         }
@@ -203,6 +255,7 @@ void Trem::run() {
              && currentPos.y == startPos.y + 20) {
             if (ID == 4) {
                 mutex[2].lock(); // Into Region 2.
+                semaphore[1].acquire(1); // Into Region 4.
             }
             if (ID == 5) {
                 mutex[4].lock(); // Into Region 2.
