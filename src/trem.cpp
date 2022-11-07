@@ -53,11 +53,12 @@ void Trem::passRegion(int right, int down, int left, int up) {
 // Função a ser executada após executar trem->START.
 void Trem::run() {
     while(true) {
+
         // Region 0.
         if (currentPos.x == startPos.x
                 && currentPos. y == startPos.y) {
             if (ID == 2) {
-                mutex[0].unlock(); // From Region 7.
+                mutex[0].unlock(); // From Region 9.
             }
             passRegion(90, 0, 0, 0);
         }
@@ -66,27 +67,36 @@ void Trem::run() {
         else if (currentPos.x == startPos.x + 90
              && currentPos.y == startPos.y) {
             if (ID == 3) {
-                mutex[1].lock(); // Into Region 3.
+                mutex[1].lock(); // Into Region 4.
             }
             if (ID == 4) {
-                mutex[3].lock(); // Into Region 3.
+                mutex[3].lock(); // Into Region 4.
             }
-            passRegion(140, 0, 0, 0);
+            passRegion(40, 0, 0, 0);
         }
 
         // Region 2.
+        else if (currentPos.x == startPos.x + 130
+             && currentPos.y == startPos.y) {
+            if (ID == 4) {
+                mutex[2].unlock(); // From Region 11.
+            }
+            if (ID == 5) {
+                mutex[4].unlock(); // From Region 11.
+            }
+            passRegion(100, 0, 0, 0);
+        }
+
+        // Region 3.
         else if (currentPos.x == startPos.x + 230
              && currentPos.y == startPos.y) {
-            if (ID == 1) { // Go to Region 5.
-                mutex[0].lock();
-            }
-            if (ID == 4) {
-                mutex[2].unlock();  // From Region 9.
+            if (ID == 1) {
+                mutex[0].lock(); // Into Region 6.
             }
             passRegion(20, 20, 0, 0);
         }
 
-        // Region 3.
+        // Region 4.
         else if (currentPos.x == startPos.x + 250
              && currentPos.y == startPos.y + 20) {
             if (ID == 3) {
@@ -98,65 +108,80 @@ void Trem::run() {
             passRegion(0, 80, 0, 0);
         }
 
-        // Region 4.
+        // Region 5.
         else if (currentPos.x == startPos.x + 250
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
-                mutex[2].lock(); // Into Region 7.
+                mutex[2].lock(); // Into Region 8.
+            }
+            if (ID == 2) {
+                mutex[4].lock(); // Into Region 8.
             }
             passRegion(0, 20, 20, 0);
         }
 
-        // Region 5.
+        // Region 6.
         else if (currentPos.x == startPos.x + 230
              && currentPos.y == startPos.y + 120) {
-            if (ID == 1) { // From Region 2.
+            if (ID == 1) { // From Region 3.
                 mutex[0].unlock();
             }
             passRegion(0, 0, 90, 0);
         }
 
-        // Region 6.
+        // Region 7.
         else if (currentPos.x == startPos.x + 140
              && currentPos.y == startPos.y + 120) {
             if (ID == 1) {
-                mutex[1].lock(); // Into Region 8.
+                mutex[1].lock(); // Into Region 10.
             }
             if (ID == 2) {
-                mutex[3].lock(); // Into Region 8.
+                mutex[3].lock(); // Into Region 10.
             }
-            passRegion(0, 0, 140, 0);
+            passRegion(0, 0, 40, 0);
         }
 
-        // Region 7.
-        else if (currentPos.x == startPos.x
+        // Region 8.
+        else if (currentPos.x == startPos.x + 100
              && currentPos.y == startPos.y + 120) {
             if (ID == 1) {
-                mutex[2].unlock(); // From Region 4.
+                mutex[2].unlock(); // From Region 5.
             }
+            if (ID == 2) {
+                mutex[4].unlock(); // From Region 5.
+            }
+            passRegion(0, 0, 100, 0);
+        }
+
+        // Region 9.
+        else if (currentPos.x == startPos.x
+             && currentPos.y == startPos.y + 120) {
             if (ID == 2) {
                 mutex[0].lock(); // Into Region 0.
             }
             passRegion(0, 0, 20, 20);
         }
 
-        // Region 8.
+        // Region 10.
         else if (currentPos.x == startPos.x - 20
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
-                mutex[1].unlock(); // From Region 6.
+                mutex[1].unlock(); // From Region 7.
             }
             if (ID == 2) {
-                mutex[3].unlock(); // From Region 6.
+                mutex[3].unlock(); // From Region 7.
             }
             passRegion(0, 0, 0, 80);
         }
 
-        // Region 9.
+        // Region 11.
         else if (currentPos.x == startPos.x - 20
              && currentPos.y == startPos.y + 20) {
             if (ID == 4) {
                 mutex[2].lock(); // Into Region 2.
+            }
+            if (ID == 5) {
+                mutex[4].lock(); // Into Region 2.
             }
             passRegion(0, 0, 0, 20);
             passRegion(20, 0, 0, 0);
