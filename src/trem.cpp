@@ -65,14 +65,12 @@ void Trem::run() {
                 && currentPos. y == startPos.y) {
             if (ID == 2) {
                 mutex[0].unlock(); // From Region 9.
-            }
-            if (ID == 3) {
-                mutex[5].unlock(); // From Region 9.
-                semaphore[0].acquire(1); // Into Region 4.
+                if (semaphore[1].available() != 2) {
+                    semaphore[1].release(1); // From Region 7.
+                }
             }
             if (ID == 4) {
                 mutex[5].unlock(); // From Region 9.
-                semaphore[2].acquire(1); // Into Region 4.
             }
             if (ID == 5) {
                 mutex[6].unlock(); // From Region 9.
@@ -95,16 +93,20 @@ void Trem::run() {
         // Region 2.
         else if (currentPos.x == startPos.x + 130
              && currentPos.y == startPos.y) {
+            if (ID == 1) {
+                semaphore[0].acquire(1); // Into Region 10.
+                semaphore[1].acquire(1); // Into Region 8.
+            }
             if (ID == 4) {
                 mutex[2].unlock(); // From Region 11.
                 if (semaphore[0].available() != 2) {
-                    semaphore[0].release(1); // From Region 8.
+                    semaphore[0].release(1); // From Region 9.
                 }
             }
             if (ID == 5) {
                 mutex[4].unlock(); // From Region 11.
                 if (semaphore[2].available() != 2) {
-                    semaphore[2].release(1); // From Region 11.
+                    semaphore[2].release(1); // From Region 9.
                 }
             }
             passRegion(100, 0, 0, 0);
@@ -128,25 +130,19 @@ void Trem::run() {
         // Region 4.
         else if (currentPos.x == startPos.x + 250
              && currentPos.y == startPos.y + 20) {
-            if (ID == 1) {
-                semaphore[0].acquire(1); // Into Region 8.
-            }
             if (ID == 2) {
                 semaphore[2].acquire(1); // Into Region 8.
             }
             if (ID == 3) {
                 mutex[1].unlock(); // From Region 1.
                 if (semaphore[0].available() != 2) {
-                    semaphore[0].release(1); // From Region 0.
+                    semaphore[0].release(1); // From Region 1.
                 }
             }
             if (ID == 4) {
                 mutex[3].unlock(); // From Region 1.
                 if (semaphore[1].available() != 2) {
                     semaphore[1].release(1); // From Region 11.
-                }
-                if (semaphore[2].available() != 2) {
-                    semaphore[2].release(1); // From Region 2.
                 }
             }
             passRegion(0, 80, 0, 0);
@@ -157,11 +153,10 @@ void Trem::run() {
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
                 mutex[2].lock(); // Into Region 8.
-                semaphore[1].acquire(1); // Into Region 10.
             }
             if (ID == 2) {
                 mutex[4].lock(); // Into Region 8.
-                semaphore[1].acquire(1); // Into Region 10.
+                semaphore[1].acquire(1); // Into Region 0.
             }
             passRegion(0, 20, 20, 0);
         }
@@ -177,6 +172,9 @@ void Trem::run() {
             }
             if (ID == 4) {
                 mutex[6].unlock(); // From Region 3.
+                if (semaphore[2].available() != 2) {
+                    semaphore[2].release(1); // From Region 11.
+                }
             }
             passRegion(0, 0, 90, 0);
         }
@@ -198,8 +196,8 @@ void Trem::run() {
              && currentPos.y == startPos.y + 120) {
             if (ID == 1) {
                 mutex[2].unlock(); // From Region 5.
-                if (semaphore[0].available() != 2) {
-                    semaphore[0].release(1); // From Region 4.
+                if (semaphore[1].available() != 2) {
+                    semaphore[1].release(1); // From Region 3.
                 }
             }
             if (ID == 2) {
@@ -237,25 +235,29 @@ void Trem::run() {
              && currentPos.y == startPos.y + 100) {
             if (ID == 1) {
                 mutex[1].unlock(); // From Region 7.
-                if (semaphore[1].available() != 2) {
-                    semaphore[1].release(1); // From Region 5.
+                if (semaphore[0].available() != 2) {
+                    semaphore[0].release(1); // From Region 5.
                 }
             }
             if (ID == 2) {
                 mutex[3].unlock(); // From Region 7.
-                if (semaphore[1].available() != 2) {
-                    semaphore[1].release(1); // From Region 5.
-                }
             }
+            if (ID == 4) {
+                semaphore[1].acquire(1); // Into Region 4.
+            }
+
             passRegion(0, 0, 0, 80);
         }
 
         // Region 11.
         else if (currentPos.x == startPos.x - 20
              && currentPos.y == startPos.y + 20) {
+            if (ID == 3) {
+                semaphore[0].acquire(1); // Into Region 4.
+            }
             if (ID == 4) {
                 mutex[2].lock(); // Into Region 2.
-                semaphore[1].acquire(1); // Into Region 4.
+                semaphore[2].acquire(1); // Into Region 6.
             }
             if (ID == 5) {
                 mutex[4].lock(); // Into Region 2.
