@@ -7,8 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1312</width>
-    <height>521</height>
+    <height>1118</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <strikeout>false</strikeout>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,8 +22,8 @@
    <widget class="QLabel" name="label_trem1">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>30</y>
+      <x>210</x>
+      <y>300</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -29,27 +34,27 @@
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
@@ -58,27 +63,27 @@
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
@@ -87,45 +92,58 @@
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>128</red>
-          <green>0</green>
-          <blue>128</blue>
+          <red>127</red>
+          <green>99</green>
+          <blue>161</blue>
          </color>
         </brush>
        </colorrole>
       </disabled>
      </palette>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { background: purple}</string>
+     <string notr="true">QLabel { 
+background: #7f63a1
+}</string>
     </property>
     <property name="text">
      <string>T1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_trilho1">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>30</y>
+      <x>210</x>
+      <y>300</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -140,8 +158,8 @@
    <widget class="QLabel" name="label_trilho3">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>30</y>
+      <x>460</x>
+      <y>300</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -156,8 +174,8 @@
    <widget class="QLabel" name="label_trilho4">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>30</y>
+      <x>190</x>
+      <y>300</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -172,8 +190,8 @@
    <widget class="QLabel" name="label_trilho4_2">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>30</y>
+      <x>730</x>
+      <y>300</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -188,8 +206,8 @@
    <widget class="QLabel" name="label_trilho1_2">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>30</y>
+      <x>480</x>
+      <y>300</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -204,24 +222,32 @@
    <widget class="QLabel" name="label_trem2">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>110</y>
+      <x>480</x>
+      <y>300</y>
       <width>21</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { background: brown}</string>
+     <string notr="true">QLabel { background: #bf4f4c}</string>
     </property>
     <property name="text">
      <string>T2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_trilho4_3">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>150</y>
+      <x>60</x>
+      <y>420</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -236,24 +262,32 @@
    <widget class="QLabel" name="label_trem3">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>150</y>
+      <x>80</x>
+      <y>420</y>
       <width>21</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { background: blue}</string>
+     <string notr="true">QLabel { background: #4e80bc}</string>
     </property>
     <property name="text">
      <string>T3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_trilho3_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>150</y>
+      <x>330</x>
+      <y>420</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -268,8 +302,8 @@
    <widget class="QLabel" name="label_trilho2_3">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>270</y>
+      <x>350</x>
+      <y>540</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -284,8 +318,8 @@
    <widget class="QLabel" name="label_trilho4_4">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>150</y>
+      <x>600</x>
+      <y>420</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -300,24 +334,32 @@
    <widget class="QLabel" name="label_trem4">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>90</y>
+      <x>350</x>
+      <y>420</y>
       <width>21</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { background: pink}</string>
+     <string notr="true">QLabel { background: #f69545}</string>
     </property>
     <property name="text">
      <string>T4</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_trilho2_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>270</y>
+      <x>80</x>
+      <y>540</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -332,8 +374,8 @@
    <widget class="QLabel" name="label_trilho1_3">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>150</y>
+      <x>350</x>
+      <y>420</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -348,8 +390,8 @@
    <widget class="QLabel" name="label_trilho1_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>150</y>
+      <x>80</x>
+      <y>420</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -364,8 +406,8 @@
    <widget class="QLabel" name="label_trilho4_5">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>150</y>
+      <x>870</x>
+      <y>420</y>
       <width>21</width>
       <height>137</height>
      </rect>
@@ -380,8 +422,8 @@
    <widget class="QLabel" name="label_trilho1_5">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>150</y>
+      <x>620</x>
+      <y>420</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -396,8 +438,8 @@
    <widget class="QLabel" name="label_trilho2_5">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>270</y>
+      <x>620</x>
+      <y>540</y>
       <width>250</width>
       <height>17</height>
      </rect>
@@ -412,24 +454,32 @@
    <widget class="QLabel" name="label_trem5">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>150</y>
+      <x>620</x>
+      <y>420</y>
       <width>21</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { background: green}</string>
+     <string notr="true">QLabel { background: #9aba58}</string>
     </property>
     <property name="text">
      <string>T5</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSliderTrem1">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>40</y>
+      <x>1000</x>
+      <y>260</y>
       <width>160</width>
       <height>30</height>
      </rect>
@@ -450,13 +500,16 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 0, 127);</string>
+     <string notr="true">background-color: #7f63a1;</string>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="singleStep">
-     <number>10</number>
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>5</number>
     </property>
     <property name="sliderPosition">
      <number>100</number>
@@ -480,14 +533,14 @@
    <widget class="QLCDNumber" name="lcdNumberTrem1">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>10</y>
+      <x>1045</x>
+      <y>230</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 0, 127);
+     <string notr="true">background-color: #7f63a1;
 </string>
     </property>
     <property name="frameShape">
@@ -509,14 +562,14 @@
    <widget class="QLCDNumber" name="lcdNumberTrem2">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>80</y>
+      <x>1045</x>
+      <y>310</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(170, 0, 0);
+     <string notr="true">background-color: #bf4f4c;
 </string>
     </property>
     <property name="frameShape">
@@ -538,8 +591,8 @@
    <widget class="QSlider" name="horizontalSliderTrem2">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>110</y>
+      <x>1000</x>
+      <y>340</y>
       <width>160</width>
       <height>30</height>
      </rect>
@@ -560,13 +613,16 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(170, 0, 0);</string>
+     <string notr="true">background-color: #bf4f4c;</string>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="singleStep">
-     <number>10</number>
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>5</number>
     </property>
     <property name="sliderPosition">
      <number>100</number>
@@ -590,14 +646,14 @@
    <widget class="QLCDNumber" name="lcdNumberTrem3">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>150</y>
+      <x>1045</x>
+      <y>390</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 255);</string>
+     <string notr="true">background-color: #4e80bc;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -618,8 +674,8 @@
    <widget class="QSlider" name="horizontalSliderTrem3">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>180</y>
+      <x>1000</x>
+      <y>420</y>
       <width>160</width>
       <height>30</height>
      </rect>
@@ -640,13 +696,16 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 255);</string>
+     <string notr="true">background-color: #4e80bc;</string>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="singleStep">
-     <number>10</number>
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>5</number>
     </property>
     <property name="sliderPosition">
      <number>100</number>
@@ -670,14 +729,14 @@
    <widget class="QLCDNumber" name="lcdNumberTrem5">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>120</y>
+      <x>1045</x>
+      <y>550</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 170, 0);</string>
+     <string notr="true">background-color: #9aba58;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -698,14 +757,14 @@
    <widget class="QLCDNumber" name="lcdNumberTrem4">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>50</y>
+      <x>1045</x>
+      <y>470</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 255);</string>
+     <string notr="true">background-color: #f69545;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -726,8 +785,8 @@
    <widget class="QSlider" name="horizontalSliderTrem5">
     <property name="geometry">
      <rect>
-      <x>1110</x>
-      <y>150</y>
+      <x>1000</x>
+      <y>580</y>
       <width>160</width>
       <height>30</height>
      </rect>
@@ -748,13 +807,16 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 170, 0);</string>
+     <string notr="true">background-color: #9aba58;</string>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="singleStep">
-     <number>10</number>
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>5</number>
     </property>
     <property name="sliderPosition">
      <number>100</number>
@@ -778,8 +840,8 @@
    <widget class="QSlider" name="horizontalSliderTrem4">
     <property name="geometry">
      <rect>
-      <x>1110</x>
-      <y>80</y>
+      <x>1000</x>
+      <y>500</y>
       <width>160</width>
       <height>30</height>
      </rect>
@@ -800,13 +862,16 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 255);</string>
+     <string notr="true">background-color: #f69545;</string>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="singleStep">
-     <number>10</number>
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>5</number>
     </property>
     <property name="sliderPosition">
      <number>100</number>
@@ -827,6 +892,402 @@
      <number>10</number>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>80</y>
+      <width>361</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>30</pointsize>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Trabalho 2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>0</y>
+      <width>691</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>40</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sistemas Operacionais</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>160</y>
+      <width>631</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>20</pointsize>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Professor:  Gustavo Girão Barreto da Silva</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>190</y>
+      <width>611</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>20</pointsize>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Aluno: Tales Henrique Rocha Roque da Silva</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>220</y>
+      <width>391</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>15</pointsize>
+      <italic>true</italic>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Matrícula: 20200041708</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>210</y>
+      <width>261</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>3</number>
+    </property>
+    <widget class="QLabel" name="label_trem5_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>370</y>
+       <width>30</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { background: #9aba58}</string>
+     </property>
+     <property name="text">
+      <string>T5</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_trem4_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>30</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { background: #f69545}</string>
+     </property>
+     <property name="text">
+      <string>T4</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_trem3_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>210</y>
+       <width>30</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { background: #4e80bc}</string>
+     </property>
+     <property name="text">
+      <string>T3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_trem2_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>30</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { background: #bf4f4c}</string>
+     </property>
+     <property name="text">
+      <string>T2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_trem1_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>30</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>127</red>
+           <green>99</green>
+           <blue>161</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { 
+background: #7f63a1
+}</string>
+     </property>
+     <property name="text">
+      <string>T1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>170</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>25</pointsize>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Controles</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>120</y>
+      <width>451</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>20</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sincronização e DeadLocks</string>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
    <zorder>label_trilho1</zorder>
    <zorder>label_trilho3</zorder>
    <zorder>label_trilho4</zorder>
@@ -857,6 +1318,13 @@
    <zorder>lcdNumberTrem4</zorder>
    <zorder>horizontalSliderTrem5</zorder>
    <zorder>horizontalSliderTrem4</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
